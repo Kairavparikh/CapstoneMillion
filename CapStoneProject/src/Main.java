@@ -7,6 +7,7 @@ public class Main implements Runnable {
         this.sum = 0;
     }
     public static void main(String[] args) {
+        long start = System.nanoTime();
         System.out.print("Hello and welcome!");
         Thread[] thread = new Thread[1000];
         for(int i = 0; i < thread.length; i++){
@@ -23,6 +24,9 @@ public class Main implements Runnable {
             }
         }
         System.out.println("The final total is " + total);
+        long end = System.nanoTime();
+        long totalTime = end - start;
+        System.out.println("Thread execution time: " + totalTime / 1_000_000.0 + " ms");
     }
 
     @Override
