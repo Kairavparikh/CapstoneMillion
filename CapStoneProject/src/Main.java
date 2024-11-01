@@ -1,7 +1,9 @@
 public class Main implements Runnable {
-    private final int i;
-    public Main(int i) {
-        this.i = i;
+    private int sum = 0;
+    private int threadNum;
+    public Main(int threadNum) {
+        this.threadNum = threadNum;
+        this.sum = 0;
     }
     public static void main(String[] args) {
         System.out.print("Hello and welcome!");
@@ -10,12 +12,14 @@ public class Main implements Runnable {
             Main obj = new Main(i);
             thread[i] = new Thread(obj);
             thread[i].start();
-
         }
     }
 
     @Override
     public void run() {
-        System.out.println("Running thread for i = " + i);
+        for (int j = 1; j <= 1000000; j++) {
+            sum += j;
+        }
+        System.out.println("Running thread for i = " + threadNum + ", sum = " + sum);
     }
 }
