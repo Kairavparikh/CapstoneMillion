@@ -13,8 +13,16 @@ public class Main implements Runnable {
             Main obj = new Main(i);
             thread[i] = new Thread(obj);
             thread[i].start();
+
         }
-        System.out.println(total + " ");
+        for(int i = 0; i < thread.length; i++) {
+            try {
+                thread[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("The final total is " + total);
     }
 
     @Override
