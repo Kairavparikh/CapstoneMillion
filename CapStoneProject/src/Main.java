@@ -9,7 +9,7 @@ public class Main implements Runnable {
     public static void main(String[] args) {//main method
         long start = System.nanoTime(); // tracks initial time
         System.out.print("Hello and welcome!");
-            Thread[] thread = new Thread[1]; // main thread
+            Thread[] thread = new Thread[1000]; // main thread
             for (int i = 0; i < thread.length; i++) {
                 Main obj = new Main(i); // creates main object for thread
                 thread[i] = new Thread(obj); // initializes the threads
@@ -37,5 +37,4 @@ public class Main implements Runnable {
         System.out.println("Running thread for i = " + threadNum + ", sum = " + count);
         System.out.println("The sum so far from thread " + threadNum + " is = " + total);
     }
-
 }
